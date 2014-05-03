@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact name="RockMatch_res">
-    <output-path>$PROJECT_DIR$/bin/res</output-path>
-    <root id="root">
-      <element id="dir-copy" path="$PROJECT_DIR$/res" />
-    </root>
-  </artifact>
-</component>
