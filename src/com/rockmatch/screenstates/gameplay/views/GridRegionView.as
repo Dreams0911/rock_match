@@ -8,7 +8,7 @@ package com.rockmatch.screenstates.gameplay.views
 	import com.rockmatch.screenstates.gameplay.views.animator.IAnimator;
 	import com.rockmatch.screenstates.gameplay.views.animator.animations.ChipsAnimationsEnum;
 	import com.rockmatch.screenstates.gameplay.views.components.ChipView;
-	import com.rockmatch.screenstates.gameplay.views.components.ChipViewFallWrap;
+	import com.rockmatch.screenstates.gameplay.views.animator.wraps.ChipViewFallWrap;
 
 	import flash.display.Sprite;
 	import flash.events.MouseEvent;

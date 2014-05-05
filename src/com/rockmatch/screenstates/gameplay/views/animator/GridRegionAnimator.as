@@ -8,8 +8,8 @@ package com.rockmatch.screenstates.gameplay.views.animator
 	import com.rockmatch.screenstates.gameplay.views.animator.animations.ChipsAnimationsEnum;
 	import com.rockmatch.screenstates.gameplay.views.animator.animations.ExplodeChipsAnimation;
 	import com.rockmatch.screenstates.gameplay.views.animator.animations.FallChipsAnimation;
-	import com.rockmatch.screenstates.gameplay.views.animator.animations.SwapFailAnimation;
-	import com.rockmatch.screenstates.gameplay.views.animator.animations.SwapSuccessfulAnimation;
+	import com.rockmatch.screenstates.gameplay.views.animator.animations.swapchips.SwapFailAnimation;
+	import com.rockmatch.screenstates.gameplay.views.animator.animations.swapchips.SwapSuccessfulAnimation;
 
 	import flash.display.Stage;
 

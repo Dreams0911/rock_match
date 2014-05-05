@@ -3,7 +3,7 @@
  * Date: 25.04.14
  * Time: 17:21
  */
-package com.rockmatch.screenstates.gameplay.views.animator.animations
+package com.rockmatch.screenstates.gameplay.views.animator.animations.swapchips
 {
 	import com.greensock.TweenLite;
 	import com.rockmatch.AppSettings;

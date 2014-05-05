@@ -3,49 +3,50 @@
  * Date: 25.04.14
  * Time: 17:21
  */
-package com.rockmatch.screenstates.gameplay.views.animator.animations
+package com.rockmatch.screenstates.gameplay.views.animator.animations.movechips
 {
 	import com.greensock.TweenLite;
 	import com.rockmatch.AppSettings;
 	import com.rockmatch.screenstates.gameplay.views.animator.animations.base.AbstractAnimation;
 	import com.rockmatch.screenstates.gameplay.views.animator.wraps.ChipViewFallWrap;
+	import com.rockmatch.screenstates.gameplay.views.animator.wraps.ChipViewMoveWrap;
+	import com.rockmatch.screenstates.gameplay.views.animator.wraps.ChipViewMoveWrap;
 
 
-	public class FallChipsAnimation extends AbstractAnimation
+	public class AbstractMoveChipsAnimation extends AbstractAnimation
 	{
-		private var _chipsFallWraps:Vector.<ChipViewFallWrap>;
-		private var _fallenChipsFallWraps:Vector.<ChipViewFallWrap>;
+		private var _chipsMoveWraps:Vector.<ChipViewMoveWrap>;
 		//==============================================================================
 		//{region							PUBLIC METHODS
-		public function FallChipsAnimation()
+		public function AbstractMoveChipsAnimation()
 		{
 
 		}
 
 		override public function play():void
 		{
-			var animationStarted:Boolean = false;
+			this.trackAnimations(_chipsMoveWraps.length);
 
 			var i:uint;
-			var chipsLen:uint = _chipsFallWraps.length;
-			var chipFallWrap:ChipViewFallWrap;
+			var chipsLen:uint = _chipsMoveWraps.length;
+			var chipMoveWrap:ChipViewMoveWrap;
 			for(i = 0; i < chipsLen; i++)
 			{
-				chipFallWrap = _chipsFallWraps[i];
+				chipMoveWrap = _chipsMoveWraps[i];
 
-				if(chipFallWrap.view.gridY >= 0)
+				if(chipMoveWrap.view.gridY >= 0)
 				{
 					animationStarted = true;
-					this.playChipFall(chipFallWrap);
+					this.playChipFall(chipMoveWrap);
 				}
-				else if(chipFallWrap.view.gridY == -1)
+				else if(chipMoveWrap.view.gridY == -1)
 				{
 					animationStarted = true;
-					this.playChipShowAndFall(chipFallWrap);
+					this.playChipShowAndFall(chipMoveWrap);
 				}
-				else if(chipFallWrap.view.gridY < -1)
+				else if(chipMoveWrap.view.gridY < -1)
 				{
-					this.moveWithoutAnimation(chipFallWrap);
+					this.moveWithoutAnimation(chipMoveWrap);
 				}
 			}
 
@@ -59,7 +60,7 @@ package com.rockmatch.screenstates.gameplay.views.animator.animations
 
 		//==============================================================================
 		//{region						PRIVATE\PROTECTED METHODS
-		private function playChipFall(chipFallWrap:ChipViewFallWrap):void
+		private function playMoveChipOnPosition(chipFallWrap:ChipViewFallWrap):void
 		{
 			this.trackAnimation();
 			var newGridY:Number = chipFallWrap.view.y + AppSettings.GRID_TILE_SIZE;
@@ -86,7 +87,7 @@ package com.rockmatch.screenstates.gameplay.views.animator.animations
 
 		override protected function onAnimationComplete():void
 		{
-			if(_chipsFallWraps.length > 0)
+			if(_chipsMoveWraps.length > 0)
 			{
 				this.play();
 				return;
@@ -115,8 +116,8 @@ package com.rockmatch.screenstates.gameplay.views.animator.animations
 
 		private function removeChipFallWrap(chipFallWrap:ChipViewFallWrap):void
 		{
-			var index:int = _chipsFallWraps.indexOf(chipFallWrap);
-			_chipsFallWraps.splice(index, 1);
+			var index:int = _chipsMoveWraps.indexOf(chipFallWrap);
+			_chipsMoveWraps.splice(index, 1);
 
 			_fallenChipsFallWraps.push(chipFallWrap);
 		}
@@ -128,7 +129,7 @@ package com.rockmatch.screenstates.gameplay.views.animator.animations
 		override public function set params(value:Object):void
 		{
 			_params = value;
-			_chipsFallWraps = _params["chipsFallWraps"];
+			_chipsMoveWraps = _params["chipsFallWraps"];
 			_fallenChipsFallWraps = new <ChipViewFallWrap>[];
 		}
 

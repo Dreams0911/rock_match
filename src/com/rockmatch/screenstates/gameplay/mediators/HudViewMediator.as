@@ -56,7 +56,7 @@ package com.rockmatch.screenstates.gameplay.mediators
 			var resource:MovieClip = this.resourceManager.getMC(this.RESOURCE_NAME);
 			if(resource != null)
 			{
-				resource.x = (this.view.stage.stageWidth - resource.width) >> 1;
+				//resource.x = (this.view.stage.stageWidth - resource.width) >> 1;
 				this.view.addResource(resource);
 			}
 		}

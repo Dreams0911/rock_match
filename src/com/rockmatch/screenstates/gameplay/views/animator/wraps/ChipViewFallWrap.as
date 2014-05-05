@@ -3,16 +3,18 @@
  * Date: 20.04.14
  * Time: 15:56
  */
-package com.rockmatch.screenstates.gameplay.views.components
+package com.rockmatch.screenstates.gameplay.views.animator.wraps
 {
-	public class ChipViewFallWrap
+	import com.rockmatch.screenstates.gameplay.views.components.*;
+
+
+	public class ChipViewFallWrap extends ChipViewAbstractWrap
 	{
-		private var _view:ChipView;
 		private var _finishGridY:int;
 
 		public function ChipViewFallWrap(view:ChipView, finishGridY:int)
 		{
-			_view = view;
+			super(view);
 			_finishGridY = finishGridY;
 		}
 
@@ -30,16 +32,12 @@ package com.rockmatch.screenstates.gameplay.views.components
 
 		//==============================================================================
 		//{region							GETTERS/SETTERS
-		public function get view():ChipView
-		{
-			return _view;
-		}
-
 		public function get fallDistance():int
 		{
 			var distance:int = _finishGridY - _view.gridY;
 			return distance;
 		}
+
 		//} endregion GETTERS/SETTERS ==================================================
 	}
 }
